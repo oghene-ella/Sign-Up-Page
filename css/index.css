@@ -72,13 +72,17 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
 }
 .container .container-wrapper .my_form form input{
     border: 1px solid rgb(220, 220, 220);
     padding: 10px;
     border-radius: 6px;
 }
+/* .container .container-wrapper .my_form form label{
+    padding: 10px;
+    border: 2px solid red;
+} */
 .container .container-wrapper .my_form form button{
     background-color: hsl(154, 59%, 51%);
     color: white;
