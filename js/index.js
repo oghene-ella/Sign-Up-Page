@@ -1,7 +1,7 @@
 /*
   1. all fields must be filled
   2. validate email field http://tobiloba.com  tobiloba  --- email doesn't exist
-  3. passowrd must contain uppercase and a symbol, 6/7, password is weak
+  3. password must contain uppercase and a symbol, 6/7, password is weak
   4. button route to the login/anyname  <a href="login.html">Claim free trial</a>
   5. <a href="index.html">Sign out</a>
 */
@@ -20,7 +20,7 @@ the_form = document.querySelector("form");
 the_claim_button = document.querySelector("#claim_btn");
 the_trial_button = document.querySelector("#trial_btn");
 
-// created a function for the claim button empty
+// created a function for the claim button
 const claimFunction = (e) => {
   e.preventDefault();
 
@@ -127,9 +127,22 @@ const claimFunction = (e) => {
     let myName = document.querySelector(".my-name");
     myName.textContent = `Hello ${firstName}, Welcome🌹`
   }
-  // // to reset the form after submission
+  // to reset the form after submission
   // the_form.reset();
 }
 
 // added an event listener to the claim button
 the_claim_button.addEventListener("click", claimFunction);
+
+
+
+// created a function for the trial button
+const trialFunction = (e) => {
+  e.preventDefault();
+  location.replace("signup.html");
+  firstName = firstName.value;
+  console.log("First Name: " + firstName);
+  let myName = document.querySelector(".my-name");
+  myName.textContent = `Hello ${firstName}, Welcome🌹`;
+}
+the_trial_button.addEventListener("click", trialFunction);
