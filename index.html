@@ -38,11 +38,15 @@
           <b>Try it free 7 days </b>
           then $20/mo. thereafter</p>
         <form action="">
-          <input type="text" name="" id="first_name" placeholder="First Name">
-          <input type="text" name="" id="last_name" placeholder="Last Name">
-          <input type="email" name="" id="email" placeholder="Email">
+          <input type="text" name="first_name" id="first_name" placeholder="First Name">
+          <label class="fn_lab"></label>
+          <input type="text" name="last_name" id="last_name" placeholder="Last Name">
+          <label class="ln_lab"></label>
+          <input type="email" name="email" id="email" placeholder="me@example.com" required>
+          <label class="email_lab"></label>
           <input type="password" name="" id="password" placeholder="Password">
-          <button id="claim_btn">Claim your free trial</button>
+          <label class="password_lab"></label>
+          <button id="claim_btn" type="submit">Claim your free trial</button>
           <p>By clicking the button, you are agreeing to our 
             <b>Terms and Services</b>
           </p>
