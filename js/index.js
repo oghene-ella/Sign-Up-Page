@@ -13,12 +13,13 @@ let firstName,
   the_password,
   the_claim_button,
   the_trial_button,
-  the_form
+  the_form, the_intro_name;
 
 // declared the buttons
 the_form = document.querySelector("form");
 the_claim_button = document.querySelector("#claim_btn");
 the_trial_button = document.querySelector("#trial_btn");
+the_intro_name = document.querySelector(".intro-name");
 
 // created a function for the claim button
 const claimFunction = (e) => {
@@ -48,8 +49,8 @@ const claimFunction = (e) => {
       ln_label.style.color = "#FF0000";
       ln_label.style.fontSize = "11px";
     }
-  } 
-  
+  }
+
   // if the email and password is empty
   else if (the_email.value === "" || the_password.value === "") {
     // declaring the variable for the empty field
@@ -58,13 +59,14 @@ const claimFunction = (e) => {
     email_label.style.color = "#FF0000";
     email_label.style.fontSize = "11px";
 
-    if (the_password.value === "") {
+    // if (the_password.value === "") {
       // declaring the variable for the empty field
       let password_label = document.querySelector(".password_lab");
+      console.log(the_password.value)
       password_label.textContent = `Fill in your password!`;
       password_label.style.color = "#FF0000";
       password_label.style.fontSize = "11px";
-    }
+    //}
   }
 
   // if the input fields are not empty
@@ -87,20 +89,37 @@ const claimFunction = (e) => {
 
     // checking for the strength and weakness of the password
     the_password = the_password.value;
-    console.log(the_password.length);
+    console.log(the_password.length, the_password);
 
     // initialize the password label
     let password_label = document.querySelector(".password_lab");
+    // max password length
+    const max_length_pass = 7;
 
-    if (the_password.length <= 7) {
+    //regex
+    const uppercaseRegex = /[A-Z]/;
+    const lowercaseRegex = /[a-z]/;
+    const digitRegex = /[0-9]/;
+
+    if (the_password.length <= max_length_pass) {
       // declare the password label
       password_label.textContent = `Password is too weak! Try again!`;
       password_label.style.color = "#FF0000";
       password_label.style.fontSize = "11px";
     } else {
-      password_label.textContent = `Password is very strong! Nice one!`;
-      password_label.style.color = "#008000";
-      password_label.style.fontSize = "11px";
+      if (
+        !uppercaseRegex.test(the_password) ||
+        !lowercaseRegex.test(the_password) ||
+        !digitRegex.test(the_password)
+      ) {
+        password_label.textContent = `Password is not strong enough`;
+        password_label.style.color = "#FF0000";
+        password_label.style.fontSize = "11px";
+      } else {
+        password_label.textContent = `Password is very strong! Nice one!`;
+        password_label.style.color = "#008000";
+        password_label.style.fontSize = "11px";
+      }
     }
 
     // checking if its the right email format
@@ -123,9 +142,9 @@ const claimFunction = (e) => {
 
     location.replace("signup.html");
     firstName = firstName.value;
-    console.log("First Name: " + firstName)
-    let myName = document.querySelector(".my-name");
-    myName.textContent = `Hello ${firstName}, Welcome🌹`
+    console.log("First Name for the signup: " + firstName);
+    console.log(the_intro_name.value);
+    the_intro_name.textContent = `Hello ${firstName}, Welcome🌹`;
   }
   // to reset the form after submission
   // the_form.reset();

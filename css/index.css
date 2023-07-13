@@ -83,7 +83,7 @@
     padding: 10px;
     border: 2px solid red;
 } */
-.container .container-wrapper .my_form form button{
+.container .container-wrapper .my_form form #claim_btn{
     background-color: hsl(154, 59%, 51%);
     color: white;
     padding: 15px 0px;
@@ -92,7 +92,7 @@
     text-transform: uppercase;
     font-weight: 600;
 }
-.container .container-wrapper .my_form form button:hover{
+.container .container-wrapper .my_form form #claim_btn:hover{
     background-color: hsl(154, 59%, 41%);
     cursor: pointer;
 }
