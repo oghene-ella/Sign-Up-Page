@@ -48,12 +48,16 @@ const validateFields = () => {
   // Validate First Name
   if (firstName.value.trim() === '') {
     document.querySelector('.fn_lab').textContent = 'Fill in your First Name!' //display error
+    document.querySelector(".fn_lab").style.color = "#FF0000";
+    document.querySelector(".fn_lab").style.fontSize = "11px";
     isValid = false
   }
 
   // Validate Last Name
   if (lastName.value.trim() === '') {
-    document.querySelector('.ln_lab').textContent = 'Fill in your Last Name!'
+    document.querySelector('.ln_lab').textContent = 'Fill in your Last Name!';
+    document.querySelector('.ln_lab').style.color = "#FF0000";
+    document.querySelector('.ln_lab').style.fontSize = "11px";
     isValid = false
   }
 
@@ -61,7 +65,9 @@ const validateFields = () => {
   const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
   if (!email.value.match(emailFormat)) {
     document.querySelector('.email_lab').textContent =
-      'Invalid Email! Please enter a valid email'
+      'Invalid Email! Please enter a valid email';
+    document.querySelector(".email_lab").style.color = "#FF0000";
+    document.querySelector(".email_lab").style.fontSize = "11px";
     isValid = false
   }
 
@@ -70,7 +76,9 @@ const validateFields = () => {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/
   if (!password.value.match(passwordFormat)) {
     document.querySelector('.password_lab').textContent =
-      'Password must contain uppercase, symbol, and be at least 6 characters'
+      'Password must contain uppercase, symbol, and be at least 6 characters';
+    document.querySelector('.password_lab').style.color = "#FF0000";
+    document.querySelector('.password_lab').style.fontSize = "11px";
     isValid = false
   }
   if (isValid) {
