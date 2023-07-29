@@ -50,7 +50,13 @@ const validateFields = () => {
     document.querySelector('.fn_lab').textContent = 'Fill in your First Name!' //display error
     document.querySelector(".fn_lab").style.color = "#FF0000";
     document.querySelector(".fn_lab").style.fontSize = "11px";
-    isValid = false
+    isValid = false;
+    firstName.blur();
+    firstName.style.border = "1px solid red";
+  }
+  else {
+    firstName.focus();
+    firstName.style.border = "1px solid green";
   }
 
   // Validate Last Name
@@ -58,7 +64,13 @@ const validateFields = () => {
     document.querySelector('.ln_lab').textContent = 'Fill in your Last Name!';
     document.querySelector('.ln_lab').style.color = "#FF0000";
     document.querySelector('.ln_lab').style.fontSize = "11px";
-    isValid = false
+    isValid = false;
+    lastName.blur();
+    lastName.style.border = "1px solid red";
+  }
+  else {
+    lastName.focus();
+    lastName.style.border = "1px solid green";
   }
 
   // Validate Email
@@ -68,7 +80,13 @@ const validateFields = () => {
       'Invalid Email! Please enter a valid email';
     document.querySelector(".email_lab").style.color = "#FF0000";
     document.querySelector(".email_lab").style.fontSize = "11px";
-    isValid = false
+    isValid = false;
+    email.blur();
+    email.style.border = "1px solid red";
+  }
+  else{
+    email.focus();
+    email.style.border = "1px solid green";
   }
 
   // Validate Password
@@ -79,8 +97,15 @@ const validateFields = () => {
       'Password must contain uppercase, symbol, and be at least 6 characters';
     document.querySelector('.password_lab').style.color = "#FF0000";
     document.querySelector('.password_lab').style.fontSize = "11px";
-    isValid = false
+    isValid = false;
+    password.blur();
+    password.style.border = "1px solid red";
   }
+  else{
+    password.focus();
+    password.style.border = "1px solid green";
+  }
+  
   if (isValid) {
     redirectToSignup(firstName.value)
   }
@@ -98,4 +123,4 @@ const claimFunction = (e) => {
 the_claim_button.addEventListener('click', claimFunction) //sign in
 the_trial_button.addEventListener('click', claimFunction) //try free
 
-console.log(window.location.href)
+// console.log(window.location.href)
