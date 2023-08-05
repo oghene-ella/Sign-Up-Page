@@ -1,11 +1,4 @@
-/*
-//   1. all fields must be filled
-//   2. validate email field http://tobiloba.com  tobiloba  --- email doesn't exist
-//   3. password must contain uppercase and a symbol, 6/7, password is weak
-//   4. button route to the login/anyname  <a href="login.html">Claim free trial</a>
-//   5. <a href="index.html">Sign out</a>
-// */
-// // Initialize the variables needed for this task
+
 let firstName,
   lastName,
   the_email,
@@ -32,6 +25,28 @@ const redirectToSignup = (firstName) => {
   localStorage.setItem('userName', firstName)
   location.replace('signup.html')
 }
+//add focus event 
+firstName.addEventListener('focus',
+  function () {
+    document.querySelector('.fn_lab').textContent = ''
+    firstName.style.border = "1px solid blue";
+  }
+)
+// add blur event 
+firstName.addEventListener('blur',
+  function () {
+    if(!firstName.value) {
+    document.querySelector('.fn_lab').textContent = 'First Name is required!'
+    document.querySelector(".fn_lab").style.color = "#FF0000";
+    firstName.style.border = "1px solid blue";
+    } else{
+      document.querySelector('.fn_lab').textContent = ''
+      firstName.style.border = "1px solid blue";
+    }
+    
+    //
+  }
+)
 
 // Function to perform input field validation and show appropriate error messages
 const validateFields = () => {
@@ -43,7 +58,7 @@ const validateFields = () => {
   // Clear previous error messages
   const errorMessages = document.querySelectorAll('.error-message')
   errorMessages.forEach((errorMessage) => (errorMessage.textContent = ''))
-  
+
   let isValid = true
   // Validate First Name
   if (firstName.value.trim() === '') {
@@ -84,7 +99,7 @@ const validateFields = () => {
     email.blur();
     email.style.border = "1px solid red";
   }
-  else{
+  else {
     email.focus();
     email.style.border = "1px solid green";
   }
@@ -101,16 +116,16 @@ const validateFields = () => {
     password.blur();
     password.style.border = "1px solid red";
   }
-  else{
+  else {
     password.focus();
     password.style.border = "1px solid green";
   }
-  
+
   if (isValid) {
     redirectToSignup(firstName.value)
   }
 }
-const dhdhd ={
+const dhdhd = {
   "firstName": firstName.value //type in by the user
 }
 
