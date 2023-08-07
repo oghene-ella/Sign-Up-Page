@@ -1,11 +1,4 @@
-/*
-//   1. all fields must be filled
-//   2. validate email field http://tobiloba.com  tobiloba  --- email doesn't exist
-//   3. password must contain uppercase and a symbol, 6/7, password is weak
-//   4. button route to the login/anyname  <a href="login.html">Claim free trial</a>
-//   5. <a href="index.html">Sign out</a>
-// */
-// // Initialize the variables needed for this task
+
 let firstName,
   lastName,
   the_email,
@@ -33,6 +26,104 @@ const redirectToSignup = (firstName) => {
   location.replace('signup.html')
 }
 
+// ----- Focus and blur event listener for the input field --------
+
+
+//add focus event for the first name
+firstName.addEventListener('focus',
+  function () {
+    document.querySelector('.fn_lab').textContent = ''
+    firstName.style.border = "1px solid green";
+  }
+)
+// add blur event for the first name
+firstName.addEventListener('blur',
+  function () {
+    if(!firstName.value) {
+    document.querySelector('.fn_lab').textContent = 'First Name is required!';
+    document.querySelector(".fn_lab").style.fontSize = '11px'
+    document.querySelector(".fn_lab").style.color = "red";
+    firstName.style.border = "1px solid red";
+    } else{
+      document.querySelector('.fn_lab').textContent = ''
+      firstName.style.border = "1px solid green";
+    }
+  }
+)
+
+//add focus event for the last name field
+lastName.addEventListener('focus',
+  function () {
+    document.querySelector('.ln_lab').textContent = ''
+    lastName.style.border = "1px solid green";
+  }
+)
+// add blur event for the last name field
+lastName.addEventListener('blur',
+  function () {
+    if(!lastName.value) {
+    document.querySelector('.ln_lab').textContent = 'Last Name is required!';
+    document.querySelector(".ln_lab").style.fontSize = '11px'
+    document.querySelector(".ln_lab").style.color = "red";
+    lastName.style.border = "1px solid red";
+    } else{
+      document.querySelector('.ln_lab').textContent = ''
+      lastName.style.border = "1px solid green";
+    }
+    
+    //
+  }
+)
+
+//add focus event for the email field
+the_email.addEventListener('focus',
+  function () {
+    document.querySelector('.email_lab').textContent = ''
+    the_email.style.border = "1px solid green";
+  }
+)
+// add blur event for the email field
+the_email.addEventListener('blur',
+  function () {
+    if(!the_email.value) {
+    document.querySelector('.email_lab').textContent = 'Email is required!';
+    document.querySelector(".email_lab").style.fontSize = '11px'
+    document.querySelector(".email_lab").style.color = "red";
+    the_email.style.border = "1px solid red";
+    } else{
+      document.querySelector('.email_lab').textContent = ''
+      the_email.style.border = "1px solid green";
+    }
+    
+    //
+  }
+)
+
+//add focus event for the password field
+the_password.addEventListener('focus',
+  function () {
+    document.querySelector('.password_lab').textContent = ''
+    the_password.style.border = "1px solid green";
+  }
+)
+// add blur event for the password field
+the_password.addEventListener('blur',
+  function () {
+    if(!the_password.value) {
+    document.querySelector('.password_lab').textContent = 'First Name is required!';
+    document.querySelector(".password_lab").style.fontSize = '11px'
+    document.querySelector(".password_lab").style.color = "red";
+    the_password.style.border = "1px solid red";
+    } else{
+      document.querySelector('.password_lab').textContent = ''
+      the_password.style.border = "1px solid green";
+    }
+    
+    //
+  }
+)
+
+
 // Function to perform input field validation and show appropriate error messages
 const validateFields = () => {
   const firstName = document.getElementById('first_name')
@@ -43,7 +134,7 @@ const validateFields = () => {
   // Clear previous error messages
   const errorMessages = document.querySelectorAll('.error-message')
   errorMessages.forEach((errorMessage) => (errorMessage.textContent = ''))
-  
+
   let isValid = true
   // Validate First Name
   if (firstName.value.trim() === '') {
@@ -84,7 +175,7 @@ const validateFields = () => {
     email.blur();
     email.style.border = "1px solid red";
   }
-  else{
+  else {
     email.focus();
     email.style.border = "1px solid green";
   }
@@ -101,16 +192,16 @@ const validateFields = () => {
     password.blur();
     password.style.border = "1px solid red";
   }
-  else{
+  else {
     password.focus();
     password.style.border = "1px solid green";
   }
-  
+
   if (isValid) {
     redirectToSignup(firstName.value)
   }
 }
-const dhdhd ={
+const dhdhd = {
   "firstName": firstName.value //type in by the user
 }
 
@@ -118,6 +209,7 @@ const dhdhd ={
 const claimFunction = (e) => {
   e.preventDefault()
   validateFields()
+
 }
 
 the_claim_button.addEventListener('click', claimFunction) //sign in
