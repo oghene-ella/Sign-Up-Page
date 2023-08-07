@@ -25,28 +25,104 @@ const redirectToSignup = (firstName) => {
   localStorage.setItem('userName', firstName)
   location.replace('signup.html')
 }
-//add focus event 
+
+// ----- Focus and blur event listener for the input field --------
+
+
+//add focus event for the first name
 firstName.addEventListener('focus',
   function () {
     document.querySelector('.fn_lab').textContent = ''
-    firstName.style.border = "1px solid blue";
+    firstName.style.border = "1px solid green";
   }
 )
-// add blur event 
+// add blur event for the first name
 firstName.addEventListener('blur',
   function () {
     if(!firstName.value) {
-    document.querySelector('.fn_lab').textContent = 'First Name is required!'
-    document.querySelector(".fn_lab").style.color = "#FF0000";
-    firstName.style.border = "1px solid blue";
+    document.querySelector('.fn_lab').textContent = 'First Name is required!';
+    document.querySelector(".fn_lab").style.fontSize = '11px'
+    document.querySelector(".fn_lab").style.color = "red";
+    firstName.style.border = "1px solid red";
     } else{
       document.querySelector('.fn_lab').textContent = ''
-      firstName.style.border = "1px solid blue";
+      firstName.style.border = "1px solid green";
+    }
+  }
+)
+
+//add focus event for the last name field
+lastName.addEventListener('focus',
+  function () {
+    document.querySelector('.ln_lab').textContent = ''
+    lastName.style.border = "1px solid green";
+  }
+)
+// add blur event for the last name field
+lastName.addEventListener('blur',
+  function () {
+    if(!lastName.value) {
+    document.querySelector('.ln_lab').textContent = 'Last Name is required!';
+    document.querySelector(".ln_lab").style.fontSize = '11px'
+    document.querySelector(".ln_lab").style.color = "red";
+    lastName.style.border = "1px solid red";
+    } else{
+      document.querySelector('.ln_lab').textContent = ''
+      lastName.style.border = "1px solid green";
     }
     
     //
   }
 )
+
+//add focus event for the email field
+the_email.addEventListener('focus',
+  function () {
+    document.querySelector('.email_lab').textContent = ''
+    the_email.style.border = "1px solid green";
+  }
+)
+// add blur event for the email field
+the_email.addEventListener('blur',
+  function () {
+    if(!the_email.value) {
+    document.querySelector('.email_lab').textContent = 'Email is required!';
+    document.querySelector(".email_lab").style.fontSize = '11px'
+    document.querySelector(".email_lab").style.color = "red";
+    the_email.style.border = "1px solid red";
+    } else{
+      document.querySelector('.email_lab').textContent = ''
+      the_email.style.border = "1px solid green";
+    }
+    
+    //
+  }
+)
+
+//add focus event for the password field
+the_password.addEventListener('focus',
+  function () {
+    document.querySelector('.password_lab').textContent = ''
+    the_password.style.border = "1px solid green";
+  }
+)
+// add blur event for the password field
+the_password.addEventListener('blur',
+  function () {
+    if(!the_password.value) {
+    document.querySelector('.password_lab').textContent = 'First Name is required!';
+    document.querySelector(".password_lab").style.fontSize = '11px'
+    document.querySelector(".password_lab").style.color = "red";
+    the_password.style.border = "1px solid red";
+    } else{
+      document.querySelector('.password_lab').textContent = ''
+      the_password.style.border = "1px solid green";
+    }
+    
+    //
+  }
+)
+
 
 // Function to perform input field validation and show appropriate error messages
 const validateFields = () => {
@@ -133,6 +209,7 @@ const dhdhd = {
 const claimFunction = (e) => {
   e.preventDefault()
   validateFields()
+
 }
 
 the_claim_button.addEventListener('click', claimFunction) //sign in
